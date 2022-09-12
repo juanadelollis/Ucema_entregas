@@ -1,50 +1,56 @@
-#Manejo de excepciones
+#Expresiones regulares:
 
-#🧗‍♀️Desafio I: Descargá y ejecutá el script1_manejo_errores.py
+#Para pensar 🤔: ¿Qué usos crees que podemos darle a las expresiones regulares? Proponé una aplicación 
+# concreta para tu carrera/disciplina.
 
-#Para pensar 🤔: ¿Qué tipo de error se obtiene al ejecutar el programa? 
-# ¿En dónde se encuentra el error? ¿Cómo te das cuenta?
-
+#🧗‍♀️ Desafío I: ¿Construí la expresión regular que obtenga al menos 4 dígitos?
 """
-Excepcion: Te da --> ZeroDivisionError: complex division by zero.
-Syntax error: Tambien falta uno de los parentesis.
-Te das cuenta porque te aparece el ^.
-Anticipación de los errores, tratamos de hacer que rompa a proposito para arreglarlo. 
-Ejemplo: Si D te da un valor negativo y si A te da cero --> no se puede
-Una opción es poner un if,pero no esta bueno. Conviene hacer un try 
+\d{4,}
 """
 
-#Para pensar 🤔: ¿Qué nos dice el mensaje de excepción? ¿Qué es la excepción de nombre?
-"""Nos dice que no esta definido divisor, y eso es una excepcion de nombre"""
-
-#Para pensar 🤔: ¿Qué nos dice el último mensaje de excepción? ¿Qué es la excepción de tipo?
-"""Nos dice que no se puede sumar un entero y un string, es una excepcion de tipo"""
-
-
-#🧗‍♀️Desafio II: Creá una función denominada mitades que tenga como argumento un número e imprima el resultado 
-# de la división de ese número por 2
+#🧗‍♀️ Desafío II: ¿Construí la expresión regular que obtenga al entre 3 y 6 letras minúsculas?
 """
-def mitades(numero):
-      return(numero/2)
-
-print(mitades(9))
-print(mitades(0))
+[a-z]{3,6}
 """
 
-#Para pensar 🤔: ¿Qué crees que ocurrirá cuando ingresas un 9 como parámetro? ¿Y con un 0?
-"""Da estos resultados: 
-4.5
-0.0
+#🧗‍♀️ Desafío III: ¿Construí la expresión regular que obtenga todas las apariciones del patrón ab en un string?
 """
-#🧗‍♀️Desafio III: ¿Cómo mejorarías tu función para que sea capaz de manejar el error de la división por cero? 
-# Reescribí la función incorporando una declaración try-except
+ab*
 """
-def mitades(numero):
-      return(numero/2)
-   except ZeroDivisionError:
-        print("No se puede dividir por 0")
 
-print(mitades(9))
-print(mitades(0))
+#🧗‍♀️Desafio IV: ¿Qué expresión regular usarías para extraer el número de estudiantes que hay en una 
+# clase según el siguiente texto: texto = 'En la clase de Introducción a la programación hay 30 estudiantes' 
+
 """
+/d+
+"""
+
+#Desafio V: imprimí el fragmento del texto entre la posición 22 y 26 ¿Qué resultado obtenés? 
+#¿Qué quiere decir el mensaje span?
+import re
+texto = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet et amet."
+
+patron = "amet"
+
+resultado = re.search(patron,texto)
+
+
+print(texto[22:26])
+
+#Para pensar 🤔: ¿Qué resultado obtenemos con search()?¿Qué diferencias observan con match()?
+# Ahora vamos a usar match. Este busca solo en el principio del string
+"""
+import re
+texto = "lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet et amet ."
+patron = "lorem"
+##Así puedo imprimir la busqueda
+print(re.match(patron, texto).group())
+"""
+
+#Para pensar 🤔: ¿Qué resultado obtenemos? ¿Para qué sirve la función group()?
+# Aca me argupa los valores que etsoy buscando
+print("Este es el resultado de aplicar el group",resultado.group())
+
+
+
 

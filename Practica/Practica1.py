@@ -1,4 +1,11 @@
-#Ejercicio 1
+#Practica de introduccion a python parte 1
+ 
+# Ejercicio 1
+#Escribir un programa que imprima la longitud de un string el cual se lee por teclado.
+"""
+Palabra = input("Escriba una palabra: ")
+print(len(Palabra))
+"""
 
 #Ejercicio 2
 """a = "Informatica"

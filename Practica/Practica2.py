@@ -1,4 +1,6 @@
-#Ejercicio 1
+#Practica de introduccion a python parte 2
+ 
+# Ejercicio 1
 """Cadena = input("Ingrese la palabra: ")
 if Cadena[0] == Cadena[0].upper()
 print(Cadena)
@@ -109,6 +111,7 @@ for i in lista2:
     lista3[i] = lista3[i] + lista2[i]
 
 print(lista3)
+
 """
 #Ejercicio 9: VERRRRR
 """
@@ -144,6 +147,7 @@ for campo,valor in diccionario.items():
 
 #Ejercicio 11: VEEERRRR
 """
+
 diccionario = {}
 cadena = input("Escribe una cadena:")
 for caracter in cadena:
@@ -208,7 +212,7 @@ for i in range(cantidad):
 
 """
 
-#Ejercicio 14:
+#Ejercicio 15:
 """
 def cargarSocios(socios):
    numero=int(input("Número de socio (0 para cortar): "))
