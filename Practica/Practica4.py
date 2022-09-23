@@ -22,6 +22,14 @@ def leer_primeras_lineas(texto,n):
 
 print(leer_primeras_lineas("manipulacion_archivos.txt",2))
 """
+"""       #las utlimas dos 
+def leer_primeras_lineas(texto,n):
+    with open(texto) as archivo:
+        lineas = archivo.readlines()
+    return lineas[-n:]
+
+print(leer_primeras_lineas("manipulacion_archivos.txt",2))
+"""
 
 #Ejercicio 3
 #Escribí un programa que lea un archivo, guarde las líneas del archivo en una lista y luego imprima las n últimas.
@@ -31,7 +39,19 @@ lista = []
 with open("manipulacion_archivos.txt") as archivo:
     lineas = [linea.strip('\n') for linea in archivo.readlines()]
     lista.append(lineas)
+
 print(lista)
+"""
+"""
+lista = []
+def guardar(texto, n):
+    with open(texto) as archivo:
+        lineas = [linea.strip('\n') for linea in archivo.readlines()]
+        lista.append(lineas)
+    return lineas [-n:]
+    
+
+print(guardar("manipulacion_archivos.txt",5))
 """
 
 #Ejercicio 4

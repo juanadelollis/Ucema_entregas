@@ -58,12 +58,20 @@ luego regresa.
 """
 archivo = (open("manipulacion_archivos.txt","r"))
 print(archivo.read())
+
+archivo.close()
 """
 #Para pensar 🤔: ¿Creés que habrá una forma más práctica de leer archivos estructurados o tabulados?
 """
 with open("manipulacion_archivos.txt","r") as archivo:
     texto = archivo.read()
     print(texto)
+
+archivo.close()
 """
 #Rutas absolutas y relativas
 
+#las rutas relativas: especifica la ruta de un archivo en referencia al directorio en el que estas parado
+# las rutas absolutas: especifica donde se encuentra un archivo pero haciendo referencia del directorio raiz del sistema operativo
+#cuando tenes la ruta absoluta tenes que cambiar los / por "\" p "//"
+#lo que pasa es que cuanod se lo mandas a alguien ese tiene que tener los mismos directorios/carpetas, por eso conviene usar rutas relativas

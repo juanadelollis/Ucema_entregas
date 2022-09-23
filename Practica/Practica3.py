@@ -73,7 +73,7 @@ print(palabras_unidas("snsjskkcjbdlkj"))
 """
 import re
 
-string = input("Escribe el numero en el que quieres buscar: ")
+string = input("Escribe el string en el que quieres buscar: ")
 patron = input("Escribe el numero a buscar: ")
 patron = "^" + patron
 
@@ -110,7 +110,7 @@ encontrar_frase(frase, lista)
 """
 import re
 
-string = input("Escriba una frase: ")
+cadena = input("Escriba una frase: ")
 
 def encontrar_string(string):
     patron = "^[a-zA-Z0-9\s]+"
@@ -119,7 +119,7 @@ def encontrar_string(string):
     else:
         return "No se cumple el patron"
 
-print(encontrar_string(string))
+print(encontrar_string(cadena))
 """
 
 #Ejercicio 8
@@ -156,16 +156,83 @@ extraer_guiones(string)
 #Ejercicio 10
 #Obtené las substrings y las posiciones de estas en una string dada considerando que las substrings 
 #están delimitadas por los caracteres @ o &.
-
+""" VERRR
 import re
 
 string = input("Escriba un string: ")
-
+"""
 
 #Ejercicio 11
 #Realizá un programa que dado una lista de strings verifique que dos palabras dentro del string 
 #empiecen con la letra P y las imprima. (Lista de ejemplo: ["Práctica Python", "Práctica C++", "Práctica Fortran"])
+"""
+import re
 
+lista = ["Práctica Python", "Práctica C++", "Práctica Fortran"]
+
+for i in lista:
+    frase = re.match("(P/w+)\W(P/w+)", i)
+    if frase:
+        print(frase.groups())
+
+"""
 #Ejercicio 12
 #Escribí un programa que reemplace todas las ocurrencias de espacios, guiones bajos y dos puntos 
 #por la barra vertical (|).
+""" 
+import re
+
+cadena = input("Escriba un string: ")
+
+def remover_espacios(string):
+    patron = "[_\s:]"
+    frase = re.sub(patron, "(|)", string)
+    print(frase)
+
+remover_espacios(cadena)
+"""
+#Ejercicio 13
+#Escribí un programa que reemplace los dos primeros caracteres no alfanúmericos por guiones bajos.
+"""
+import re
+
+cadena = input("Escriba un string: ")
+
+def guiones_bajos(string):
+    patron = "\W"
+    frase = re.sub(patron, "_", string, 2)
+    print(frase)
+
+guiones_bajos(cadena)
+
+"""
+#Ejercicio 14
+#Realizá un programa que reemplace los espacios y tabulaciones por punto y coma.
+"""  
+import re
+
+cadena = input("Escriba un string: ")
+
+def punto_coma(string):
+    patron = "[\s\t]"
+    frase = re.sub(patron, ";", string)
+    print(frase)
+
+punto_coma(cadena)
+"""
+#Ejercicio 15
+#Realizá un programa que validar si una cuenta de mail está escrita correctamente.
+"""
+import re
+
+mail = input("Escriba su mail: ")
+
+def validar_mail(email):
+    patron = '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$'
+    if (re.search(patron, email)):
+        print("Mail valido")   
+    else:  
+        print("Mail invalido") 
+
+validar_mail(mail)
+"""

@@ -18,7 +18,7 @@ Una opción es poner un if,pero no esta bueno. Conviene hacer un try
 """Nos dice que no esta definido divisor, y eso es una excepcion de nombre"""
 
 #Para pensar 🤔: ¿Qué nos dice el último mensaje de excepción? ¿Qué es la excepción de tipo?
-"""Nos dice que no se puede sumar un entero y un string, es una excepcion de tipo"""
+"""Nos dice que no se puede sumar un entero y un string, es una excepcion de tipo. Type error"""
 
 
 #🧗‍♀️Desafio II: Creá una función denominada mitades que tenga como argumento un número e imprima el resultado 
@@ -40,9 +40,10 @@ print(mitades(0))
 # Reescribí la función incorporando una declaración try-except
 """
 def mitades(numero):
-      return(numero/2)
-   except ZeroDivisionError:
-        print("No se puede dividir por 0")
+      try:
+            numero/2
+      except ZeroDivisionError:
+            print("No se puede dividir por 0")
 
 print(mitades(9))
 print(mitades(0))

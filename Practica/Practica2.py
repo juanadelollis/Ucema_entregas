@@ -13,6 +13,11 @@ if Numero == 0:
 elif Numero >0:
     print("El numero es positivo")
 else: "El numero es negativo"
+
+if numero % 2 ==0:
+    print("Es par")
+else:
+    print("Es impar")
 """
 
 #Ejercicio 3
@@ -34,6 +39,24 @@ elif Numero <1:
 elif Numero >6:
     print("El numero es incorrecto ")
 """
+""" UNA FORMA MEJOR
+numero = int(input("Escribe un numero del 1 al 6: "))
+if 1<= numero <= 6:
+    if numero == 1:
+        print("El numero opuesto es: ", (7 - numero))
+    elif numero == 2:
+        print("El numero opuesto es: ", (7 - numero))
+    elif numero == 3:
+        print("El numero opuesto es: ", (7 - numero))
+    elif numero == 4:
+        print("El numero opuesto es: ", (7 - numero))
+    elif numero == 5:
+        print("El numero opuesto es: ", (7 - numero))
+    elif numero == 6:
+        print("El numero opuesto es: ", (7 - numero))
+else:
+    print("El numero debe estar entre 1 y 6!")
+"""
 
 #Ejercicio 4:
 """Paquete = float(input("Cuantos gramos pesa: "))
@@ -50,6 +73,23 @@ elif Pais == "Asia":
     print (Paquete * 30)
 elif Pais >5000:
     print("Supera el peso de 5kg, no se transporta ")
+"""
+""" UNA FORMA MEJOR
+paquete = float(input("Escribe el peso en gramos: "))
+destino = input("Hacia donde se envia el paquete: ")
+if paquete <= 5000:
+    if destino == "America del sur":
+        print("El costo del envio es: $", paquete * 10)
+    elif destino == "America central":
+        print("El costo del envio es: $", paquete * 15)
+    elif destino == "America del norte":
+        print("El costo del envio es: $", paquete * 18)
+    elif destino == "Europa":
+        print("El costo del envio es: $", paquete * 24)
+    elif destino == "Asia":
+        print("El costo del envio es: $", paquete * 30)
+else:
+    print("Por cuestiones de logitica no se transportan paquetes con un peso superior a 5kg")
 """
 
 #Ejercicio 5:
@@ -69,6 +109,27 @@ elif Dia == 6:
 elif Dia == 7:
    print("Hoy es Domingo")
    """
+""" UNA FORMA MEJOR
+numero = int(input("EScribe el numero del dia de la semana: "))
+if 1<= numero <= 7:
+    if numero == 1:
+        print("Hoy es Lunes")
+    elif numero == 2:
+        print("Hoy es Martes")
+    elif numero == 3:
+        print("Hoy es Miercoles")
+    elif numero == 4:
+        print("Hoy es Jueves")
+    elif numero == 5:
+        print("Hoy es Viernes")
+    elif numero == 6:
+        print("Hoy es Sabado")
+    elif numero == 7:
+        print("Hoy es Domingo")
+else:
+    print("El numero es incorrecto, debe ser entre 1 y 7!")
+"""
+
 #Ejercicio 6:
 """
 lista1 = ["marketing", "fundamentos", "analitica", "direccion", "finanzas"]
@@ -93,6 +154,16 @@ agregar(9)
 agregar(4)
 agregar(-8)
 """
+""" UNA FORMA MEJOR
+lista = []
+numero = int(input("Introduce un número en la lista:"))
+while numero>=0:
+	lista.append(numero)
+	numero = int(input("Introduce un número en la lista:"))
+
+for numero in lista:
+	print(numero," ",end="")
+"""
 #Ejercicio 8 -----------------VER
 #Realizá un programa que declare tres listas lista1, lista2 y lista3, donde 
 #las dos primeras listas deben tener cinco enteros cada una, ingresados por 
@@ -100,34 +171,44 @@ agregar(-8)
 # de la lista1 y la lista2 (es decir, el primer elemento de la lista3 tiene 
 # que ser la suma del primer elemento de la lista1 y el primero de la lista2)
 """
-lista1 = [4,6,3,5,7]
-lista2 = [7,2,4,6,3]
+lista1 = []
+lista2 = []
 lista3 = []
 
-for i in lista1:
-    lista3.append(lista1[i])
+for indice in range(1,6):
+	lista1.append(int(input("Introduce el elemento %d del vector1: " % indice)))
+for indice in range(1,6):
+	lista2.append(int(input("Introduce el elemento %d del vector2: " % indice)))
 
-for i in lista2:
-    lista3[i] = lista3[i] + lista2[i]
+for indice in range(0,5):
+	lista3.append(lista1[indice] + lista2[indice])
 
-print(lista3)
-
+print("La suma de los vectores es:")
+for numero in lista3:
+	print(numero," ",end="")
 """
+
 #Ejercicio 9: VERRRRR
 """
-alumnos = []
+nombres = []
+edades = []
 
-def nombres(nombre, edad):
-    if nombre != "*":
-      list.append(alumnos,nombres)
-    elif nombre == "*":
-        print(max(edad))
-        print()
 
-nombres("maria",19)
-nombres("juan",24)
-nombres("tomas",25)
-nombres("*",18)
+while True:
+    nombre = input("Escribe el nombre de alumno: ")
+    if nombre != "*":    
+        nombres.append(nombre)
+        edades.append(int(input("Escribe la edad del alumno: ")))
+    else:
+        break
+
+edad_max = max(edades)
+print("La edad maxima es:",edad_max)
+
+for nombre,edad in zip(nombres,edades):
+	if edad == edad_max:
+		print("El alumno con la edad maxima es:",nombre)
+
 """
 
 #Ejercicio 10: 
@@ -206,12 +287,10 @@ def tempMedia(Temp1, Temp2):
 
 cantidad = int(input("Cantidad de dias:"))
 for i in range(cantidad):
-    Temp1 = float(input("Temperatura maxima: "))
-    Temp2 = float(input("Temperatura minima: "))
-    print(tempMedia(Temp1, Temp2))
-
+    Temp_max = float(input("Temperatura maxima: "))
+    Temp_min = float(input("Temperatura minima: "))
+    print("Temperatura media:", tempMedia(Temp_max, Temp_min))
 """
-
 #Ejercicio 15:
 """
 def cargarSocios(socios):
@@ -281,4 +360,159 @@ if numero in socios_activos:
 
  
 imprimirListado(socios_activos)
+"""
+
+
+#-------------de nuevo
+
+#ejrcicio 1
+"""
+palabra = input("Escriba una palabra: ")
+if palabra[0] == palabra[0].upper():
+    print(palabra)
+else:
+    print("La palabra no empieza con mayuscula")
+"""
+
+#ejericio 2
+"""
+numero = int(input("ESscriba un numero: "))
+
+if numero == 0:
+    print("ES cero")
+elif numero > 0:
+    print("El numero es positivo")
+else:
+    print("El numero es negativo")
+
+if numero % 2 ==0:
+    print("Es par")
+else:
+    print("Es impar")
+"""
+
+#ejercicio 3
+"""
+numero = int(input("Escribe un numero del 1 al 6: "))
+if 1<= numero <= 6:
+    if numero == 1:
+        print("El numero opuesto es: ", (7 - numero))
+    elif numero == 2:
+        print("El numero opuesto es: ", (7 - numero))
+    elif numero == 3:
+        print("El numero opuesto es: ", (7 - numero))
+    elif numero == 4:
+        print("El numero opuesto es: ", (7 - numero))
+    elif numero == 5:
+        print("El numero opuesto es: ", (7 - numero))
+    elif numero == 6:
+        print("El numero opuesto es: ", (7 - numero))
+else:
+    print("El numero debe estar entre 1 y 6!")
+"""
+
+#EJERCICIO 4
+"""
+paquete = float(input("Escribe el peso en gramos: "))
+destino = input("Hacia donde se envia el paquete: ")
+if paquete <= 5000:
+    if destino == "America del sur":
+        print("El costo del envio es: $", paquete * 10)
+    elif destino == "America central":
+        print("El costo del envio es: $", paquete * 15)
+    elif destino == "America del norte":
+        print("El costo del envio es: $", paquete * 18)
+    elif destino == "Europa":
+        print("El costo del envio es: $", paquete * 24)
+    elif destino == "Asia":
+        print("El costo del envio es: $", paquete * 30)
+else:
+    print("Por cuestiones de logitica no se transportan paquetes con un peso superior a 5kg")   
+"""
+#ejercicio 5
+"""
+numero = int(input("EScribe el numero del dia de la semana: "))
+if 1<= numero <= 7:
+    if numero == 1:
+        print("Hoy es Lunes")
+    elif numero == 2:
+        print("Hoy es Martes")
+    elif numero == 3:
+        print("Hoy es Miercoles")
+    elif numero == 4:
+        print("Hoy es Jueves")
+    elif numero == 5:
+        print("Hoy es Viernes")
+    elif numero == 6:
+        print("Hoy es Sabado")
+    elif numero == 7:
+        print("Hoy es Domingo")
+else:
+    print("El numero es incorrecto, debe ser entre 1 y 7!")
+"""
+
+#EJERCIIO 6
+"""
+lista1 = ["marketing", "fundamentos", "analitica", "direccion", "finanzas"]
+lista2 = list.reverse(lista1)
+print (lista2)
+"""
+"""
+lista1 = []
+lista2 = []
+# Recorro la lista1 y leo cada elemento por teclado.
+for indice in range(1,6):
+	lista1.append(input("Dame la cadena %d:" % indice))
+	
+# Copio la lista1 en la lista2 en orden inverso
+lista2 = lista1[::-1]
+
+# Recorro el vector2 para mostrarlo
+for cadena in lista2:
+	print(cadena)
+"""
+
+#ejercicio 7
+"""
+lista = []
+
+def agregar_numero(numero):
+    if numero >= 0:
+        lista.append(numero)
+    else:
+        print(lista)
+
+agregar_numero(8)
+agregar_numero(2)
+agregar_numero(-1)
+"""
+
+"""
+lista = []
+numero = int(input("Introduce un número en la lista:"))
+while numero>=0:
+	lista.append(numero)
+	numero = int(input("Introduce un número en la lista:"))
+
+for numero in lista:
+	print(numero," ",end="")
+"""
+
+#ejericio 8
+"""
+lista1 = []
+lista2 = []
+lista3 = []
+
+for indice in range(1,6):
+	lista1.append(int(input("Introduce el elemento %d del vector1: " % indice)))
+for indice in range(1,6):
+	lista2.append(int(input("Introduce el elemento %d del vector2: " % indice)))
+
+for indice in range(0,5):
+	lista3.append(lista1[indice] + lista2[indice])
+
+print("La suma de los vectores es:")
+for numero in lista3:
+	print(numero," ",end="")
 """

@@ -49,3 +49,24 @@ def numero_positivo(lista, numero):
 numero_positivo(lista,-1)
 
 """
+#para mostrarle lo que puso
+"""
+try:
+  print(mi_dict[buscar_clave])
+except KeyError as msg_error::
+  print(f"¡Lo siento, {error_msg} no es una clave valida!")
+"""
+
+#error de archivo
+#aca puedo usar el finally
+"""
+try:
+  mi_archivo = open("Contenido/datos_muestra/mi_archivo.txt")
+except FileNotFoundError:
+  print(f"Lo siento, el archivo no existe")
+else:
+  contenido = mi_archivo.read()
+  print(contenido)
+finally:
+  mi_archivo.close()
+"""
