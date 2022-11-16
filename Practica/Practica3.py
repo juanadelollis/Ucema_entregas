@@ -124,13 +124,16 @@ print(encontrar_string(cadena))
 
 #Ejercicio 8
 #Escribí un programa que separe y devuelva los caracteres númericos de un string.
+
+#LA FUNCION SPLIT SACA DEL STRING EL PATRON Y TE DEVUELVE LO QUE QUEDA
+
 """
 import re
 
 string = input("Escriba una frase: ")
 
 def separar_funciones(string):
-    patron = "\D+"
+    patron = "\D+" #ningun digito
     lista_numeros = re.split(patron, string, flags=re.IGNORECASE)
     print(lista_numeros)
 
@@ -156,26 +159,47 @@ extraer_guiones(string)
 #Ejercicio 10
 #Obtené las substrings y las posiciones de estas en una string dada considerando que las substrings 
 #están delimitadas por los caracteres @ o &.
-""" VERRR
+""" 
 import re
 
 string = input("Escriba un string: ")
+
+def extraer_subtring(string):
+    patron = "@(.*?)&"
+    busqueda = re.findall(patron, string)
+    print(busqueda)
+    for item in busqueda:
+        print("La posicion del substring es: ", string.find(item))
+
+extraer_subtring(string)
 """
 
+"""
+import re
+
+string = input("Escriba un string: ")
+
+found = re.search("@(.*?)&", string).group()
+print(found)
+print("La posicion del substring es: ",string.index(found))
+"""
 #Ejercicio 11
 #Realizá un programa que dado una lista de strings verifique que dos palabras dentro del string 
 #empiecen con la letra P y las imprima. (Lista de ejemplo: ["Práctica Python", "Práctica C++", "Práctica Fortran"])
+
 """
 import re
 
 lista = ["Práctica Python", "Práctica C++", "Práctica Fortran"]
 
-for i in lista:
-    frase = re.match("(P/w+)\W(P/w+)", i)
-    if frase:
-        print(frase.groups())
+def empieza_con(lista):
+    for i in lista:
+        frase = re.match("(P\w+)\W(P\w+)", i)
+        if frase:
+            print(frase.groups())
 
-"""
+empieza_con(lista)
+"""    
 #Ejercicio 12
 #Escribí un programa que reemplace todas las ocurrencias de espacios, guiones bajos y dos puntos 
 #por la barra vertical (|).
@@ -199,13 +223,13 @@ import re
 cadena = input("Escriba un string: ")
 
 def guiones_bajos(string):
-    patron = "\W"
+    patron = "\W" #--> negacion del alfanumerico
     frase = re.sub(patron, "_", string, 2)
     print(frase)
 
 guiones_bajos(cadena)
-
 """
+
 #Ejercicio 14
 #Realizá un programa que reemplace los espacios y tabulaciones por punto y coma.
 """  
@@ -228,7 +252,7 @@ import re
 mail = input("Escriba su mail: ")
 
 def validar_mail(email):
-    patron = '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$'
+    patron = '^[a-z0-9]+[\._]*?[a-z0-9]+[@]\w+[.]\w{2,3}$'
     if (re.search(patron, email)):
         print("Mail valido")   
     else:  

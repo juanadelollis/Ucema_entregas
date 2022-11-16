@@ -20,7 +20,10 @@ else:
     print("Es impar")
 """
 
-#Ejercicio 3
+#Ejercicio 3 
+#Escribí un programa que dado un número del 1 al 6, ingresado por teclado, muestre cuál es el número que está en la 
+# cara opuesta de un dado. Si el número es menor a 1 y mayor a 6 se debe mostrar un mensaje indicando que es incorrecto 
+# el número ingresado.
 """Numero = int(input("Escriba un numero: "))
 if Numero == 1:
     print("Seis")
@@ -93,6 +96,9 @@ else:
 """
 
 #Ejercicio 5:
+# Creá un programa que pida el número de día de la semana (del 1 al 7) e imprima el nombre correspondiente. 
+# Si se ingresa un número fuera de rango tiene que imprimir un mensaje indicando que el número es incorrecto.
+
 """Dia = int(input("Escriba el numero del dia de la semana: "))
 if Dia == 1:
    print("Hoy es Lunes")
@@ -130,12 +136,48 @@ else:
     print("El numero es incorrecto, debe ser entre 1 y 7!")
 """
 
-#Ejercicio 6:
+#Ejercicio 6: 
+# Creá una lista e inicializala con 5 cadenas de caracteres leídas por teclado. Copiá los elementos de la lista en otra 
+# lista pero en orden inverso, imprimí los elementos de esta última lista.
 """
 lista1 = ["marketing", "fundamentos", "analitica", "direccion", "finanzas"]
-lista2 = list(lista1)
+lista2 = lista1[::-1]
 print (lista2)
 """
+""" UNA FORMA MEJOR
+lista1 = []
+lista2 = []
+
+# Recorro la lista1 y leo cada elemento por teclado.
+for indice in range(1,6):
+	lista1.append(input("Dame la cadena %d:" % indice))
+	
+# Copio la lista1 en la lista2 en orden inverso
+lista2 = lista1[::-1]
+
+# Recorro el vector2 para mostrarlo
+for cadena in lista2:
+	print(cadena)
+"""
+"""
+lista1 = []
+lista2 = []
+
+# Recorro la lista1 y leo cada elemento por teclado.
+for i in range(1,6):
+	lista1.append(input("Dame la cadena %d:" % i))
+	
+# Copio la lista1 en la lista2 en orden inverso
+lista2 = lista1[::-1]
+
+# Recorro el vector2 para mostrarlo
+for i in lista2:
+	print(i)
+
+print(lista2)
+print(lista1)
+"""
+
 #Ejercicio 7:
 #Creá un programa que declare una lista y la vaya llenando de números leídos 
 # por teclado hasta que se introduzca un número negativo. Una vez hecho esto 
@@ -164,7 +206,8 @@ while numero>=0:
 for numero in lista:
 	print(numero," ",end="")
 """
-#Ejercicio 8 -----------------VER
+
+#Ejercicio 8 
 #Realizá un programa que declare tres listas lista1, lista2 y lista3, donde 
 #las dos primeras listas deben tener cinco enteros cada una, ingresados por 
 # teclado y asigne para cada elemento de la lista3 la suma de los elementos 
@@ -188,7 +231,13 @@ for numero in lista3:
 	print(numero," ",end="")
 """
 
-#Ejercicio 9: VERRRRR
+#Ejercicio 9: 
+#Hacé un programa que guarde los nombres y la edades de los alumnos de un curso. Se debe introducir el nombre y la edad 
+#de cada alumno por teclado. El proceso de lectura de datos terminará cuando se introduzca como nombre un asterisco (*). 
+#Al finalizar se deben mostrar los siguientes datos:
+#- La edad máxima de todos los alumnos.
+#- Los alumnos que tengan la edad máxima
+
 """
 nombres = []
 edades = []
@@ -203,7 +252,11 @@ while True:
         break
 
 edad_max = max(edades)
-print("La edad maxima es:",edad_max)
+print("Alumnos mayores de edad:")
+
+for nombre,edad in zip(nombres,edades):
+	if edad >= 18:
+		print("-", nombre)
 
 for nombre,edad in zip(nombres,edades):
 	if edad == edad_max:
@@ -212,8 +265,11 @@ for nombre,edad in zip(nombres,edades):
 """
 
 #Ejercicio 10: 
+#Escribí un programa que lea una cadena y devuelva un diccionario con la cantidad de apariciones de cada carácter 
+# en la cadena (considerar que las mayúsculas difieren de las minúsculas, por lo que, si el string es "Agua", 
+# el carácter "A" tiene 1 aparición y el carácter "a" también tiene 1).
 
-"""
+""" 
 diccionario = {}
 cadena = input("Escribe una cadena:")
 for caracter in cadena:
@@ -227,23 +283,31 @@ for campo,valor in diccionario.items():
 """
 
 #Ejercicio 11: VEEERRRR
-"""
-
+# Modificá el programa anterior para que además imprima los caracteres que no aparecen en la cadena, pero con el valor 0.
+""" VEEERRRR
 diccionario = {}
 cadena = input("Escribe una cadena:")
 for caracter in cadena:
 	if caracter in diccionario:
 		diccionario[caracter]+=1
     elif:
-        diccionario[caracter]=0	
-    elif:
         diccionario[caracter]=1	
+    elif:
+        diccionario[caracter] = None
+        return diccionario[caracter] = 0
+
 
 for campo,valor in diccionario.items():
     print(campo,"->",valor)
 """
 
-#Ejercicio 12:
+#Ejercicio 12: 
+# Creá un programa que permita guardar los nombres de los alumnos de una clase y las notas que han obtenido. 
+# Cada alumno puede tener distinta cantidad de notas. Guardá la información en un diccionario cuya claves serán 
+# los nombres de los alumnos y los valores serán listas con las notas de cada alumno. El programa tiene que pedir el 
+# número de alumnos que se va a introducir, luego su nombre y sus notas hasta que introduzcamos un número negativo. 
+# Al final el programa tiene que mostrar la lista de alumnos y la nota media obtenida por cada uno de ellos. 
+# Nota: si se introduce el nombre de un alumno que ya existe el programa tiene que dar un error.
 """
 alumnos = {}
 cantidad = int(input("Introduce la cantidad de alumnos que vamos a guradar:"))
@@ -291,6 +355,8 @@ for i in range(cantidad):
     Temp_min = float(input("Temperatura minima: "))
     print("Temperatura media:", tempMedia(Temp_max, Temp_min))
 """
+
+
 #Ejercicio 15:
 """
 def cargarSocios(socios):
@@ -362,157 +428,3 @@ if numero in socios_activos:
 imprimirListado(socios_activos)
 """
 
-
-#-------------de nuevo
-
-#ejrcicio 1
-"""
-palabra = input("Escriba una palabra: ")
-if palabra[0] == palabra[0].upper():
-    print(palabra)
-else:
-    print("La palabra no empieza con mayuscula")
-"""
-
-#ejericio 2
-"""
-numero = int(input("ESscriba un numero: "))
-
-if numero == 0:
-    print("ES cero")
-elif numero > 0:
-    print("El numero es positivo")
-else:
-    print("El numero es negativo")
-
-if numero % 2 ==0:
-    print("Es par")
-else:
-    print("Es impar")
-"""
-
-#ejercicio 3
-"""
-numero = int(input("Escribe un numero del 1 al 6: "))
-if 1<= numero <= 6:
-    if numero == 1:
-        print("El numero opuesto es: ", (7 - numero))
-    elif numero == 2:
-        print("El numero opuesto es: ", (7 - numero))
-    elif numero == 3:
-        print("El numero opuesto es: ", (7 - numero))
-    elif numero == 4:
-        print("El numero opuesto es: ", (7 - numero))
-    elif numero == 5:
-        print("El numero opuesto es: ", (7 - numero))
-    elif numero == 6:
-        print("El numero opuesto es: ", (7 - numero))
-else:
-    print("El numero debe estar entre 1 y 6!")
-"""
-
-#EJERCICIO 4
-"""
-paquete = float(input("Escribe el peso en gramos: "))
-destino = input("Hacia donde se envia el paquete: ")
-if paquete <= 5000:
-    if destino == "America del sur":
-        print("El costo del envio es: $", paquete * 10)
-    elif destino == "America central":
-        print("El costo del envio es: $", paquete * 15)
-    elif destino == "America del norte":
-        print("El costo del envio es: $", paquete * 18)
-    elif destino == "Europa":
-        print("El costo del envio es: $", paquete * 24)
-    elif destino == "Asia":
-        print("El costo del envio es: $", paquete * 30)
-else:
-    print("Por cuestiones de logitica no se transportan paquetes con un peso superior a 5kg")   
-"""
-#ejercicio 5
-"""
-numero = int(input("EScribe el numero del dia de la semana: "))
-if 1<= numero <= 7:
-    if numero == 1:
-        print("Hoy es Lunes")
-    elif numero == 2:
-        print("Hoy es Martes")
-    elif numero == 3:
-        print("Hoy es Miercoles")
-    elif numero == 4:
-        print("Hoy es Jueves")
-    elif numero == 5:
-        print("Hoy es Viernes")
-    elif numero == 6:
-        print("Hoy es Sabado")
-    elif numero == 7:
-        print("Hoy es Domingo")
-else:
-    print("El numero es incorrecto, debe ser entre 1 y 7!")
-"""
-
-#EJERCIIO 6
-"""
-lista1 = ["marketing", "fundamentos", "analitica", "direccion", "finanzas"]
-lista2 = list.reverse(lista1)
-print (lista2)
-"""
-"""
-lista1 = []
-lista2 = []
-# Recorro la lista1 y leo cada elemento por teclado.
-for indice in range(1,6):
-	lista1.append(input("Dame la cadena %d:" % indice))
-	
-# Copio la lista1 en la lista2 en orden inverso
-lista2 = lista1[::-1]
-
-# Recorro el vector2 para mostrarlo
-for cadena in lista2:
-	print(cadena)
-"""
-
-#ejercicio 7
-"""
-lista = []
-
-def agregar_numero(numero):
-    if numero >= 0:
-        lista.append(numero)
-    else:
-        print(lista)
-
-agregar_numero(8)
-agregar_numero(2)
-agregar_numero(-1)
-"""
-
-"""
-lista = []
-numero = int(input("Introduce un número en la lista:"))
-while numero>=0:
-	lista.append(numero)
-	numero = int(input("Introduce un número en la lista:"))
-
-for numero in lista:
-	print(numero," ",end="")
-"""
-
-#ejericio 8
-"""
-lista1 = []
-lista2 = []
-lista3 = []
-
-for indice in range(1,6):
-	lista1.append(int(input("Introduce el elemento %d del vector1: " % indice)))
-for indice in range(1,6):
-	lista2.append(int(input("Introduce el elemento %d del vector2: " % indice)))
-
-for indice in range(0,5):
-	lista3.append(lista1[indice] + lista2[indice])
-
-print("La suma de los vectores es:")
-for numero in lista3:
-	print(numero," ",end="")
-"""

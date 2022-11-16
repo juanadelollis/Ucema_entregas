@@ -414,18 +414,10 @@ class Enterprise:
             return 0
 
 #-----------------Ejercicio ESTUDIANTES
-class Estudiante:
+class Persona:
     def __init__(self, energia):
-        self.energia = energia   
+        self.energia = energia 
 
-    def estudiar(self, cantidad_horas):
-        self.energia -= 20 * cantidad_horas
-
-    def estado_animo(self, estudiante):
-        if estudiante.aprobar():
-            return "Feliz"
-
-class Persona(Estudiante):
     def energia_actual(self): #getter
         return self.energia
     
@@ -443,9 +435,24 @@ class Persona(Estudiante):
 
     def hacer_ejercicio(self, minutos):
        self.energia -= 25 * minutos/30
-        
+
+    def estado_animo(self):
+        return "No esta Feliz"    
+
+class Estudiante(Persona): 
+    def estudiar(self, cantidad_horas):
+        self.energia -= 20 * cantidad_horas
+
     def aporbar(self):
+        self.estado_animo = "Feliz"
         return True
+        
+estudiante = Estudiante(100)
+estudiante.hacer_ejercicio(30)
+estudiante.estudiar(3)
+estudiante.comer()
+print(estudiante.aprobar())
+print(estudiante.energia_actual())
     
 
 #---------------PRACTICA DE NUEVO
@@ -556,6 +563,56 @@ class Gorriones:
 
     def esta_en_equilibrio(self):
         return 0.5 <= self.css <= 2
+
+#---------------------------EXTRAS
+##A continuación creamos la clase `Persona`. Una persona tendrá un DNI, un #nombre y una edad.
+#
+#* Creamos el constructor.
+#* Crearemos también los métodos seters y getters.
+#* Se debe definir el método `mostrar()` para imprimir los datos de la persona.
+##Vamos a realizar la clase `DNI` donde vamos a guardar el número de DNI (lo #vamos a guardar en una cadena de longitud 8) y la letra correspondiente.
+#
+#* Vamos a crear el constructor, que recibe el número de DNI y calcula #automáticamente la letra.
+#* Crearemos también los métodos seters y getters.
+#* Se debe definir el método `mostrar()` para imprimir el DNI.
+class Persona:
+    def __init__(self, dni, nombre, edad):
+        self.dni = dni
+        self.nombre = nombre
+        self.edad = edad
+    
+    def get_dni(self):
+        return self.dni 
+    def get_nombre(self):
+        return self.nombre
+    def edad_actual(self):
+        return self.edad
+    
+    def nombrar(self, nombre):
+        self.nombre = nombre
+
+    def validar_dni(self):
+        if len(self.dni) != 9:
+            print("DNI incorrecto!")
+            self.dni = ""
+        
+    def dni(self, id):
+        self.dni = id
+        self.validar_dni()
+
+    def edad(self, edad):
+        if edad < 0:
+            print("Edad incorrecta")
+            self.edad = 0 
+        else:
+            self.edad = edad
+
+    def mostrar(self):
+        return "Nombre: "+self.nombre, "Dni: "+self.dni, "Edad: "+self.edad
+
+
+
+
 
 
 
