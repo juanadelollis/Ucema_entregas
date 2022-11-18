@@ -61,9 +61,14 @@ def get_productos():
 @app.route("/productos/nuevo", methods=("GET", "POST"))
 def modificar_producto():
     if request.method == 'POST':
-        valor_input = request.form.get("name").split(",")
-        productos[valor_input[0]] = {"Producto": valor_input[1], "Stock": valor_input[2], "Precio unitario": valor_input[3]}
-        print(valor_input)
-        return redirect(url_for('success'))
+        id_prod = request.form.get("id")
+        nombre = request.form.get("name")
+        stock = request.form.get("stock")
+        precio = request.form.get("price")
+        producto = [id_prod, nombre, stock, precio]
+        productos[producto[0]] = {"Producto": producto[1], "Stock": producto[2], "Precio unitario": producto[3]}
+        print(productos)
+        return redirect(url_for('/productos'))
     else:
       return render_template('producto_nuevo.html')
+

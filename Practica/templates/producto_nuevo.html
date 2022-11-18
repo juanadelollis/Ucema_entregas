@@ -7,6 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>HOLA</h1>
+    <form action = "http://localhost:5000/productos/nuevo/" method = "post">
+        <h1>Agregá tu producto</h1>
+        <input name="id" type= "number" placeholder="ID producto"> 
+        <input name="name" type= "text" placeholder="Tipo de producto">
+        <input name="stock" type= "number" placeholder="Stock del producto">
+        <input name="price" type= "number" placeholder="Precio unitario de producto">
+        <button type="submit">AGREGAR</button> 
+    </form> 
 </body>
 </html>
