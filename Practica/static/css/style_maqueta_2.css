@@ -67,10 +67,10 @@ h3{
     width: 300px;
     margin-top: 20%;
     margin-left: 30%;
-    background-color: #bdb2ff;
-    border-color:  #bdb2ff;
+    background-color: black;
+    border-color:  yellow;
     font-size: 28px;
-    color: #5271ff;    
+    color: yellow;    
 }
 
 .logo{
